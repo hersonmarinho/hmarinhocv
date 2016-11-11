@@ -1,17 +1,79 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Escolaridade
+      {{ titulo }}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+<ion-content padding>
+
+  <!--Interação para criar os cards na tela-->
+  <div padding *ngFor="let curso of cursos">
+
+    <!--Carrega o tipo da formação-->
+    <h2> {{ curso.tipo }}</h2>
+
+    <!--Card Graduação-->
+    <ion-card>
+
+      <ion-item>
+        <ion-avatar item-right>
+          <img src="{{ curso.logo }}">
+        </ion-avatar>
+        <h2>{{ curso.instituicao }}</h2>
+      </ion-item>
+
+      <ion-card-content>
+        <p>
+          {{ curso.descricao }}
+        </p>
+        <p>
+          {{ curso.dataInicio.getFullYear() }} - {{ curso.dataFim.getFullYear() }}
+        </p>
+      </ion-card-content>
+
+    </ion-card>
+
+    <!--Card Curso Técnico
+  <ion-card>
+
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
+      <ion-avatar item-right>
+        <img src="/assets/img/senac.png">
+      </ion-avatar>
+      <h2>Senac São Paulo</h2>
     </ion-item>
-  </ion-list>
+
+    <ion-card-content>
+      <h2>Tecnico em Informática</h2>
+      <p>
+        2012 - 2013
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <h2>Idiomas</h2>
+
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-right>
+        <img src="/assets/img/wizard.png">
+      </ion-avatar>
+      <h2>Wizard São Paulo</h2>
+    </ion-item>
+
+    <ion-card-content>
+      <h2>Inglês Intermediário</h2>
+      <p>2012 - 2015</p>
+    </ion-card-content>
+
+  </ion-card>
+-->
+
+  </div>
 </ion-content>

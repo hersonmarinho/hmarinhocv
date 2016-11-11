@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ProfissionalService } from '../../app/services/profissional.service';
+import { Pessoa } from '../../app/models/pessoa';
+import { Profissional } from '../../app/models/profissional';
 
-/*
-  Generated class for the Profissional page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-profissional',
-  templateUrl: 'profissional.html'
+  templateUrl: 'profissional.html',
+  providers: [ProfissionalService]
 })
-export class ProfissionalPage {
+export class ProfissionalPage implements OnInit{
+  public titulo: string = 'Profissional';
+  public profissionais: Profissional[];
+  public pessoa: Pessoa;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public profissionalService: ProfissionalService) {
+  }
 
-  ionViewDidLoad() {
-    console.log('Hello ProfissionalPage Page');
+  ngOnInit() {
+    this.profissionais = this.profissionalService.carregarProfissionais();
+    this.pessoa = this.profissionalService.carregarPessoa();
   }
 
 }

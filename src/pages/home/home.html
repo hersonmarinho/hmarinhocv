@@ -1,31 +1,34 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Dados Pessoais</ion-title>
+    <ion-title>{{ titulo }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
 
-    <img src="assets/img/profile.jpg"/>
+    <!--Foto de Perfil-->
+    <img src="{{ pessoa.foto }}"/>
 
+    <!--Dados pessoais e de contato-->
     <ion-card-content>
-      <h2>Nome Sobrenome</h2>
+      <h2>{{ pessoa.nome }}</h2>
       <p>
-        Brasileiro, Solteiro, 25 anos
+        {{ pessoa.localDeNasc }}, {{ pessoa.estadoCivil }}, Nascimento: {{ pessoa.dtNasc.getDate() }}/{{ pessoa.dtNasc.getMonth() }}/{{pessoa.dtNasc.getFullYear()}}
       </p>
       <p>
-        Endereço – Rua Teste, 777
+        Endereço - {{ endereco.tipoLogradouro }} {{ endereco.endereco }}, {{ endereco.numero }}
       </p>
       <p>
-        Bairro Teste – Cidade Teste – XX
+        {{ endereco.bairro }} - {{ endereco.cidade }} - {{ endereco.estado }}
       </p>
       <p>
-        Telefones: (00) 0000-0000 / (00) 00000-0000
+        Telefone: {{ pessoa.telefone }}
       </p>
       <p>
-        E-mail: email@teste.com
+        E-mail: {{ pessoa.email }}
       </p>
     </ion-card-content>
+
   </ion-card>
 </ion-content>
